@@ -49,7 +49,7 @@ const Order = () => {
               </tr>
             </thead>
             <tbody>
-            {orders.map((order)=>{
+            {orders && orders.map((order)=>{
               return (
             <>
                 <tr>

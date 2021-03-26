@@ -39,7 +39,7 @@ const CartScreen = () => {
      
      if(userLoginValue)
      {
-       const order={cartItems:cartItems,customer:userLoginValue}
+       const order={cartItems:cartItems,customer:userLoginValue.id}
       dispatch(createOrder(order))
       history.push("/success")
      }

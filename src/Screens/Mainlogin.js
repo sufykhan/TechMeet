@@ -122,7 +122,7 @@ const Mainlogin = () => {
               
                   <Tab eventKey="Delivery" title="DELIVERY">
                     <Form onSubmit={submitDel} style={{ color: "black" }}>
-                      <Form.Group controlId="VendorName">
+                      <Form.Group controlId="DeliverName">
                         <br />
                         <Form.Label>Delivery</Form.Label>
                         <Form.Control
@@ -158,7 +158,7 @@ const Mainlogin = () => {
                           }}
                         ></Form.Control>
                       </Form.Group>
-                      <Form.Group controlId="Apassword">
+                      <Form.Group controlId="AApassword">
                         <Form.Label>Password </Form.Label>
                         <Form.Control
                           type="password"
