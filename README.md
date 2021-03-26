@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+**SETTING UP THE ENVIRONMENT AND CONFIGURATION:-**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**PART 1- FRONTEND**
 
-## Available Scripts
+Download the react and for reference follow the[ video](https://youtu.be/IbWXHfz91_Y).
 
-In the project directory, you can run:
+**PART 2-BACKEND**
 
-### `npm start`
+Download the node and for reference follow the[ video](https://youtu.be/JINE4D0Syqw).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**PART 3- MongoDB**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Download the MongoDB and for reference see the[ video](https://youtu.be/rPqRyYJmx2g) and set up the configuration.
 
-### `npm test`
+ 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**GETTING AND INSTALLING THE FRONTEND AND BACKEND CODE:-**
 
-### `npm run build`
+(Note: FrontEnd and BackEnd should be in the same folder for convenience)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Part 1- Installing Frontend Part**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone the frontend repository provided(using git clone &lt;>RepoUrl&lt;>)and for reference[ follow the guideline](https://youtu.be/CKcqniGu3tA) to do so. After cloning the repository as mentioned in the guideline run the command (npm install) in the terminal to download dependencies and then run the command(npm start) to start the frontend.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Part 2- Installing Backend Part**
 
-### `npm run eject`
+Clone the backend repository provided and for reference[ follow the guideline](https://youtu.be/CKcqniGu3tA) to do so.After cloning the repository as mentioned in the guideline run the command (npm install) in the terminal to download dependencies and then set up the MongoDB password and URL in the (.env) folder ([Follow the video to get URL and Password](https://youtu.be/rPqRyYJmx2g)).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Populate the .env folder as shown below with your credentials.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![alt_text](images/image1.png "image_tooltip")
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+After that is done run the command (node seeder) to fill the data in the MongoDB(You don’t need to worry about the collection name as it is automatic in MongoDB).After that is done run the command(node server) to start the backend. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+FrontEnd Repo-->[https://github.com/sufykhan/TechMeet](https://github.com/sufykhan/TechMeet) 
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+BackEnd Repo-->[https://github.com/sufykhan/Tech-Meet-Backend](https://github.com/sufykhan/Tech-Meet-Backend) 
