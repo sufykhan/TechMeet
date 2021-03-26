@@ -18,6 +18,7 @@ const reducer = combineReducers({
   placedorder:orderPlaceReducer,
 });
  const cartItemsFromStorage=localStorage.getItem("cartItems")?JSON.parse(localStorage.getItem("cartItems")):[]
+ const customerIdFromStorage=localStorage.getItem("customerLogined")?JSON.parse(localStorage.getItem("customerLogined")):{}
 
 const initialState = {cart:{cartItems:cartItemsFromStorage}}
 const middleWare = [thunk];

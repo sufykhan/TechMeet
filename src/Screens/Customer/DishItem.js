@@ -1,5 +1,6 @@
 import React, {useState } from "react";
 import { Button, Card, Col, FormControl, Row, Table } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 // import Img from "../../images/cury.jpg"
 const DishItem = ({ product }) => {
@@ -7,20 +8,25 @@ const DishItem = ({ product }) => {
   const { name, vendors, image, price,_id } = product;
   const [index, setIndex] = useState(0);
   const [display,setDisplay]=useState(false);
-  
+
+  // const vendorList = useSelector(state => state.vendorList)
   
   const [qty,setQty]=useState(1);
 
 
+  
   const history = useHistory();
-  let countInStock = 4;
+  let countInStock = 5;
 
   const addToCartHandler=()=>{
     history.push(`/cart/${_id}?qty=${qty}&selectedvendor=${vendors[index]}&pri=${price[index]}`)
   }
 
+  const vendorData=JSON.parse(localStorage.getItem("vendorData"));
+  const customerData=JSON.parse(localStorage.getItem("customerData"));
+
   const detail = () => {
-    const y=vendors.map((value,index)=><tr><td>{index+1}</td><td>{value}</td><td>{price[index]}</td></tr>)
+    const y=vendors.map((value,index)=><tr><td>{index+1}</td><td>{value}</td><td>Rs{price[index]}</td><td>{(vendorData.find(({address,name})=>name===value)).address}</td></tr>)
     const x = (
       <Table className="cursor" variant="dark" striped bordered hover responsive onClick={()=>setDisplay(false)}>
         <thead>
@@ -28,6 +34,7 @@ const DishItem = ({ product }) => {
             <th></th>
             <th>Producer</th>
             <th>Price</th>
+            <th>Address</th>
           </tr>
         </thead>
         <tbody>

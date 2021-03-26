@@ -11,7 +11,7 @@ import {
   CREATE_VENDOR
 } from "../constants/vendorConstants";
 
-export const listVendors = () => async (dispatch) => {
+export const listVendors = () => async (dispatch,getState) => {
   try {
     dispatch({ type: VENDOR_LIST_REQUEST });
 
@@ -20,6 +20,9 @@ export const listVendors = () => async (dispatch) => {
       type: VENDOR_LIST_SUCCESS,
       payload: data,
     });
+
+    localStorage.setItem("vendorData",JSON.stringify(getState().vendorList.vendors))
+
   } catch (error) {
     dispatch({ type: VENDOR_LIST_FAIL,
          payload: error.response && error.response.data.message ? error.response.data.message : error.message, 

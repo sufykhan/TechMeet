@@ -37,9 +37,12 @@ const Mainlogin = () => {
   const [cpassword, setcPassword] = useState("");
   const [message, setMessage] = useState("");
 
+  const submitDel=(e)=>{
+   history.push("/delivery")
+  }
   const submitAdmin = (e) => {
     if(!loading){
-    const foundVendor=vendors.find(vendor=>vendor.name===aname)
+    const foundVendor=vendors.find(vendor=>vendor.name.toLowerCase()===aname.toLowerCase())
     if (aname === "Admin" && apassword === "123") {
       history.push("/admin");
     } else if (foundVendor&& apassword === "123") {
@@ -56,8 +59,8 @@ const Mainlogin = () => {
   };
   const submitCustomer = (e) => {
     if(!loading){
-    const foundCustomer=customers.find(customer=>customer.name===cname)
-    localStorage.setItem("customerLogined",JSON.stringify(foundCustomer._id))
+    const foundCustomer=customers.find(customer=>customer.name.toLowerCase()===cname.toLowerCase())
+    localStorage.setItem("customerLogined",JSON.stringify({id:foundCustomer._id,name:foundCustomer.name}))
     if (foundCustomer && cpassword === "123") {
       history.push("/customer");
     } else {
@@ -83,7 +86,7 @@ const Mainlogin = () => {
                 <Tabs
                   defaultActiveKey="Admin"
                   id="uncontrolled-tab-example"
-                  style={{ fontSize: "24px" }}
+                  style={{ fontSize: "22px" }}
                 >
                   <Tab eventKey="Admin" title="ADMIN">
                     {/* <h1>Admin / Vendor</h1> */}
@@ -116,6 +119,30 @@ const Mainlogin = () => {
                       <Button type="submit">Sign In</Button>
                     </Form>
                   </Tab>
+              
+                  <Tab eventKey="Delivery" title="DELIVERY">
+                    <Form onSubmit={submitDel} style={{ color: "black" }}>
+                      <Form.Group controlId="VendorName">
+                        <br />
+                        <Form.Label>Delivery</Form.Label>
+                        <Form.Control
+                          type="text"
+                          required
+                          placeholder="Enter User Name"
+                        ></Form.Control>
+                      </Form.Group>
+                      <Form.Group controlId="Xpassword">
+                        <Form.Label>Password </Form.Label>
+                        <Form.Control
+                          type="password"
+                          required
+                          placeholder="Enter password"
+                        ></Form.Control>
+                      </Form.Group>
+                      <Button type="submit" >Sign In</Button>
+                    </Form>
+                  </Tab>
+
                   <Tab eventKey="Vendors" title="PRODUCER">
                     <Form onSubmit={submitAdmin} style={{ color: "black" }}>
                       <Form.Group controlId="VendorName">
@@ -146,10 +173,13 @@ const Mainlogin = () => {
                       <Button type="submit">Sign In</Button>
                     </Form>
                   </Tab>
+
+
                 </Tabs>
               </Col>
               <Col xs={12} md={6} style={{marginBottom:"25px"}}>
-                <h1>Customer</h1>
+              
+                <h3 className="my-3">Customer</h3>
                 <Form onSubmit={submitCustomer} style={{ color: "black" }}>
                   <Form.Group controlId="CustomerName">
                     <Form.Label>Customer User Name</Form.Label>

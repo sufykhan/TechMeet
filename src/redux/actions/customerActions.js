@@ -11,7 +11,7 @@ import {
   CREATE_CUSTOMER
 } from "../constants/customerConstants";
 
-export const listCustomers = () => async (dispatch) => {
+export const listCustomers = () => async (dispatch,getState) => {
   try {
     dispatch({ type: CUSTOMER_LIST_REQUEST });
 
@@ -20,6 +20,9 @@ export const listCustomers = () => async (dispatch) => {
       type: CUSTOMER_LIST_SUCCESS,
       payload: data,
     });
+
+    localStorage.setItem("customerData",JSON.stringify(getState().customerList.customers))
+
   } catch (error) {
     dispatch({ type: CUSTOMER_LIST_FAIL,
          payload: error.response && error.response.data.message ? error.response.data.message : error.message, 

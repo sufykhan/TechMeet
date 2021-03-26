@@ -18,13 +18,25 @@ const CustomerScreen = () => {
 
   const vendorList = useSelector((state) => state.vendorList);
   const { vendors} = vendorList;
-
+ 
+  const {mapvendor,setM}=useState({});
 
   // console.log(products)
   useEffect(() => {
     dispatch(listVendors());
-    dispatch(listProducts())
+    dispatch(listProducts());
   }, [dispatch])
+
+  // useEffect(()=>{
+  //   const obj={};
+  //   vendors.map(({name,address})=>{
+  //     setM({...mapvendor,name:address})
+  //   })
+    
+  // },[])
+  
+
+
 
   const [searchItem,setItem]=useState("Select the Product")
   const [vendor,setVendor]=useState("Filter with Producers")

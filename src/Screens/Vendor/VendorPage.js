@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import Loader from "../../components/Loader";
 import { listProducts } from "../../redux/actions/productActions";
 
 const VendorDynamic = () => {
@@ -20,6 +21,7 @@ useEffect(() => {
 const listByVendor=()=>{
     let arr=[];
     //const filtered=products.filter(({vendors})=>vendors.find((vendor)=>vendor==={id}))
+    if(products){
     for(let i=0;i<products.length;i++){
       for(let j=0;j<products[i].vendors.length;j++)
       {
@@ -28,6 +30,7 @@ const listByVendor=()=>{
         }
       }
     }
+  }
     return arr;
     // const lists=arr.map(([{name,price},indice],index)=>{
     //     <tr>
@@ -77,7 +80,7 @@ const SubmitDish=(e)=>{
       <Header />
       <main className="py-3" style={{ background:"#ddd"}}>
         <Container>
-        <Row><Col md={8} ><h5> PRODUCT LIST</h5></Col><Col md={4} ><Button variant="success" style={{float:"right"}} onClick={()=>setShow(true)}>ADD A DISH</Button></Col></Row>
+        <Row><Col md={8} ><h5> PRODUCT LIST</h5></Col><Col md={4} ><Button variant="success" style={{float:"right"}} onClick={()=>setShow(true)}>ADD A PRODUCT</Button></Col></Row>
         
         <br/>
         <br/>
@@ -105,11 +108,11 @@ const SubmitDish=(e)=>{
                 <td><Link to={`/vendor/${id}?index=${indice}&todo=delete`} className="btn btn-light">Delete</Link></td>
         </tr>        
     })} */}
-    {datas.map(([{name,price,_id},value],index)=>{return (<tr> <td>{index+1}</td>
+    {!loading?datas.map(([{name,price,_id},value],index)=>{return (<tr> <td>{index+1}</td>
                 <td>{name}</td>
                 <td>Rs {price[value]}</td>
                 <td><Link to={`/vendor/update/${id}?id=${_id}&index=${value}&dish=${name}`} className="btn btn-primary">Update</Link></td>
-                <td><Link to={`/vendor/delete/${id}?id=${_id}&index=${value}&dish=${name}`} className="btn btn-danger">Delete</Link></td></tr>)})}
+                <td><Link to={`/vendor/delete/${id}?id=${_id}&index=${value}&dish=${name}`} className="btn btn-danger">Delete</Link></td></tr>)}):<Loader/>}
             </tbody>
           </Table>
         </Container>
